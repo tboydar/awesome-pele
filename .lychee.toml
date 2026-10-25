@@ -1,0 +1,9 @@
+# npmjs.com answers plain clients with a Cloudflare challenge. The package
+# itself is checked against the npm registry when entries are added.
+exclude = ['^https://www\.npmjs\.com/']
+
+max_retries = 3
+timeout = 30
+accept = [200, 206, 429]
+
+exclude_all_private = true

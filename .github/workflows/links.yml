@@ -1,0 +1,28 @@
+name: links
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lychee:
+    name: Check links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: >-
+            --config .lychee.toml
+            --verbose
+            --no-progress
+            README.md
+            README.zh-TW.md
+            contributing.md
+            contributing.zh-TW.md
